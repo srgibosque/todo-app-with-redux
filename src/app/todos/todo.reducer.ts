@@ -24,7 +24,8 @@ const _todoReducer = createReducer(
         return todo;
       }
     })
-  })
+  }),
+  on(actions.deleteTodo, (state, {id}) => state.filter(todo => todo.id !== id))
 );
 
 export function todoReducer(state: TodoDTO[] = initalState, action: Action){

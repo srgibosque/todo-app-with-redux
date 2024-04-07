@@ -23,22 +23,23 @@ export class TodoListItemComponent implements OnInit {
   }
 
   completeTask(): void{
-    this.store.dispatch(actions.completeTodo({id: this.todo.id}));
+    this.store.dispatch( actions.completeTodo({id: this.todo.id}) );
   }
 
   editTask(): void{
     this.isEditing = true;
+    this.titleInput.setValue(this.todo.title);
   }
 
   deleteTask(): void{
-
+    this.store.dispatch( actions.deleteTodo({id: this.todo.id}) );
   }
 
   submitTask(): void{
     this.isEditing = false;
 
     if(!this.titleInput.invalid && this.titleInput.value !== this.todo.title){
-      this.store.dispatch(actions.editTodo({id: this.todo.id, title: this.titleInput.value}));
+      this.store.dispatch( actions.editTodo({id: this.todo.id, title: this.titleInput.value}) );
     }
   }
 }

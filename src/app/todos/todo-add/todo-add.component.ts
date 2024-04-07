@@ -22,7 +22,6 @@ export class TodoAddComponent implements OnInit {
 
   addTodoTask(): void{
     if(this.titleInput.valid){
-      console.log('abwdbdhw');
       this.store.dispatch(actions.createTodo({title: this.titleInput.value}));
       this.titleInput.reset();
     }
