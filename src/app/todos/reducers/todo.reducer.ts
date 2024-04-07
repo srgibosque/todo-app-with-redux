@@ -65,7 +65,24 @@ const _todoReducer = createReducer(
     loaded: false,
     todos: [...state.todos.filter((todo) => todo.id !== id)]
 
+  })),
+
+  on(actions.getAllTodos, state => ({...state, loading: true})),
+
+  on(actions.getAllTodosSuccess, (state, {todos}) => ({
+    ...state,
+    loading: false,
+    loaded: true,
+    todos: [...todos]
+  })),
+
+  on(actions.getAllTodosError, (state, {payload}) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+    error: payload
   }))
+
 );
 
 export function todoReducer(state: TodoState | undefined , action: Action){

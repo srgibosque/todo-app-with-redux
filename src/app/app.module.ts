@@ -10,6 +10,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { appReducers } from './app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { EffectsArray } from './todos/efects';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { appReducers } from './app.reducer';
     TodoModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
