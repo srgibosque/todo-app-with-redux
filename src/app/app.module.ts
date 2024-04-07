@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './todos/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     TodoModule,
+    HttpClientModule,
     StoreModule.forRoot({todos: todoReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
