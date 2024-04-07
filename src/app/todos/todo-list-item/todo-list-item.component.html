@@ -14,13 +14,13 @@
 <!-- READ MODE -->
 <div class="container mt-2" *ngIf="!isEditing">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4" [class.completed] = "todo.done">
       {{todo.title}}
     </div>
 
     <div class="col-8">
-      <button class="btn btn-success" type="button" (click)="completeTask()">Done</button>
-      <button class="btn btn-primary ml-2" type="button" (click)="editTask()">Edit</button>
+      <button class="btn btn-success" type="button" (click)="completeTask()" *ngIf="!todo.done">Done</button>
+      <button class="btn btn-primary ml-2" type="button" (click)="editTask()" *ngIf="!todo.done">Edit</button>
       <button class="btn btn-danger ml-2" type="button" (click)="deleteTask()">Delete</button>
     </div>
   </div>

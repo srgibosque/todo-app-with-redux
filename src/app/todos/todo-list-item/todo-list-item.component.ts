@@ -36,5 +36,9 @@ export class TodoListItemComponent implements OnInit {
 
   submitTask(): void{
     this.isEditing = false;
+
+    if(!this.titleInput.invalid && this.titleInput.value !== this.todo.title){
+      this.store.dispatch(actions.editTodo({id: this.todo.id, title: this.titleInput.value}));
+    }
   }
 }

@@ -15,6 +15,15 @@ const _todoReducer = createReducer(
         return todo;
       }
     })
+  }),
+  on(actions.editTodo, (state, {id,title}) => {
+    return state.map((todo) => {
+      if(todo.id === id){
+        return {...todo, title: title};
+      } else {
+        return todo;
+      }
+    })
   })
 );
 
