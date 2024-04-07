@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { TodoDTO } from '../models/todo.dto';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
-import * as actions from '../todo.actions'
+import * as actions from '../actions/todo.actions'
 
 @Component({
   selector: 'app-todo-list-item',

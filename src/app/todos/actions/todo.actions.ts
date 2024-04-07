@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { TodoDTO } from "../models/todo.dto";
 
 
 export const createTodo = createAction(
@@ -19,4 +20,18 @@ export const editTodo = createAction(
 export const deleteTodo = createAction(
   '[TODO] Delete todo',
   props<{ id:number}>()
+);
+
+export const getAllTodos = createAction(
+  '[TODO] Get all'
+);
+
+export const getAllTodosSuccess = createAction(
+  '[TODO] Get all success',
+  props<{todos: TodoDTO[]}>()
+);
+
+export const getAllTodosError = createAction(
+  '[TODO] Get all error',
+  props<{payload: any}>()
 );
